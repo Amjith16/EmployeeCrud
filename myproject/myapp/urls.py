@@ -1,14 +1,14 @@
 
-from django.urls import path
+from django.urls import path, include
 from . import views
-from .views import EmployeeCrud
+from .views import EmployeeView
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'Employee', EmployeeView)
 
 
 
 urlpatterns = [
-    path("employee/", EmployeeCrud.as_view({'get': 'list',
-        'post': 'create',
-        'put': 'update',    
-        'patch': 'partial_update',  
-        'delete': 'destroy'}), name = "Employee"),
+    path("", include(router.urls)),
 ]
