@@ -5,7 +5,7 @@ from .views import EmployeeView
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'Employee', EmployeeView)
+router.register(r'', EmployeeView)
 
 
 
